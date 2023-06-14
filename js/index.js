@@ -7,7 +7,7 @@ import fetchAnimais from "./modules/fetch-animais";
 import fetchBitcoin from "./modules/fetch-bitcoin";
 import ScrollAnima from "./modules/scroll-anima";
 import DropdownMenu from "./modules/dropdown-menu";
-import initMenuMobile from "./modules/menu-mobile";
+import MenuMobile from "./modules/menu-mobile";
 import initFuncionamento from "./modules/funcionamento";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
@@ -32,13 +32,11 @@ tooltip.init();
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]');
 scrollAnima.init();
 
-const dropDownMenu = new DropdownMenu("[data-dropdown]", [
-  "touchstart",
-  "click",
-]);
+const dropDownMenu = new DropdownMenu("[data-dropdown]");
 dropDownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
 initFuncionamento();
 
 fetchAnimais("../../animais-api.json", ".numeros-grid");
